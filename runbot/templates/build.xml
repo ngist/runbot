@@ -136,7 +136,7 @@
                 <br/>
 
                 <t t-if="len(build.params_id.builds_reference_ids) > 1">
-                  <b>Reference batch:</b>
+                  <b>Reference builds:</b>
                   <t t-foreach="build.params_id.builds_reference_ids" t-as="reference">
                     <span t-esc="reference.id"/>
                   </t>
