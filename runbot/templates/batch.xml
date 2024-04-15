@@ -35,8 +35,6 @@
                                 <span class="badge badge-info" t-esc="s2human(batch.last_update - batch.create_date)"/>
                             </td>
                         </tr>
-                    </td>
-
                         <tr t-if="more and batch.reference_batch_ids">
                             <td>Version reference batches (for upgrade)</td>
                             <td>
