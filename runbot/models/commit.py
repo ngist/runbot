@@ -25,7 +25,7 @@ class Commit(models.Model):
         )
     ]
     name = fields.Char('SHA')
-    tree_hash = fields.Char('Tree hash')
+    tree_hash = fields.Char('Tree hash', readonly=True)
     repo_id = fields.Many2one('runbot.repo', string='Repo group')
     date = fields.Datetime('Commit date')
     author = fields.Char('Author')

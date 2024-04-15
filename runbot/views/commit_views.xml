@@ -8,6 +8,7 @@
                 <sheet>
                     <group>
                         <field name="name" widget="char_frontend_url"/>
+                        <field name="tree_hash"/>
                         <field name="dname"/>
                         <field name="repo_id"/>
                         <field name="date"/>
@@ -29,6 +30,7 @@
         <field name="arch" type="xml">
             <tree string="Commits">
                 <field name="name" widget="char_frontend_url"/>
+                <field name="tree_hash"/>
                 <field name="date"/>
                 <field name="repo_id"/>
                 <field name="author_email"/>

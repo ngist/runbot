@@ -37,6 +37,12 @@
                 </td>
               </tr>
               <tr>
+                <td>Tree hash</td>
+                <td>
+                  <t t-esc="commit.tree_hash"/>
+                </td>
+              </tr>
+              <tr>
                 <td>Repo</td>
                 <td t-esc="commit.repo_id.name"/>
               </tr>
