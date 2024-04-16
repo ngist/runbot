@@ -76,7 +76,8 @@ class TestRepo(RunbotCaseMinimalSetup):
             '<marc.bidule@somewhere.com>',
             'Server subject',
             'Marc Bidule',
-            '<marc.bidule@somewhere.com>')]
+            '<marc.bidule@somewhere.com>',
+            't0d0caca')]
 
         self.commit_list[self.repo_server.id] = first_commit
 
@@ -104,7 +105,8 @@ class TestRepo(RunbotCaseMinimalSetup):
                                                   '<marc.bidule@somewhere.com>',
                                                   'Addons subject',
                                                   'Marc Bidule',
-                                                  '<marc.bidule@somewhere.com>')]
+                                                  '<marc.bidule@somewhere.com>',
+                                                  'teadbeef')]
 
         repos._update_batches()
 
@@ -132,7 +134,9 @@ class TestRepo(RunbotCaseMinimalSetup):
              '<marc.bidule@somewhere.com>',
              'Another subject',
              'Marc Bidule',
-             '<marc.bidule@somewhere.com>')]
+             '<marc.bidule@somewhere.com>',
+             't0d0caca',
+        )]
 
         # Create Batches
         repos._update_batches()
@@ -162,7 +166,8 @@ class TestRepo(RunbotCaseMinimalSetup):
                 '<marc.bidule@somewhere.com>',
                 'A new subject',
                 'Marc Bidule',
-                '<marc.bidule@somewhere.com>'
+                '<marc.bidule@somewhere.com>',
+                't00b',
             ),
             (
                 'refs/%s/pull/123' % self.remote_server.remote_name,
@@ -172,7 +177,8 @@ class TestRepo(RunbotCaseMinimalSetup):
                 '<marc.bidule@somewhere.com>',
                 'A new subject',
                 'Marc Bidule',
-                '<marc.bidule@somewhere.com>'
+                '<marc.bidule@somewhere.com>',
+                't00b',
             )]
 
         # Create Batches
@@ -212,7 +218,9 @@ class TestRepo(RunbotCaseMinimalSetup):
              '<marc.bidule@somewhere.com>',
              'A last subject',
              'Marc Bidule',
-             '<marc.bidule@somewhere.com>')]
+             '<marc.bidule@somewhere.com>',
+             'tead1234',
+        )]
 
         repos._update_batches()
 
@@ -266,7 +274,9 @@ class TestRepo(RunbotCaseMinimalSetup):
                                                           '<marc.bidule@somewhere.com>',
                                                           'A nice subject',
                                                           'Marc Bidule',
-                                                          '<marc.bidule@somewhere.com>'])
+                                                          '<marc.bidule@somewhere.com>',
+                                                          't0d0caca %s' % i,
+                                                          ])
         inserted_time = time.time()
         _logger.info('Insert took: %ssec', (inserted_time - start_time))
         repo._update_batches()

@@ -44,7 +44,8 @@ class RunbotCase(TransactionCase):
             commiter_email,
             subject,
             author,
-            author_email)]
+            author_email,
+            't' + sha[1:])]
 
     def setUp(self):
         super().setUp()
