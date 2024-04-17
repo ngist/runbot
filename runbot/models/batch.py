@@ -92,7 +92,7 @@ class Batch(models.Model):
                 build = slot.build_id
                 if build.global_state in ('running', 'done'):
                     continue
-                testing_slots = build.slot_ids.filtered(lambda s: not s.skipped)
+                testing_slots = build.params_id.slot_ids.filtered(lambda s: not s.skipped)
                 if not testing_slots:
                     if build.global_state == 'pending':
                         build._skip('Newer build found')

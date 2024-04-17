@@ -76,6 +76,8 @@ class BuildParameters(models.Model):
 
     fingerprint = fields.Char('Fingerprint', compute='_compute_fingerprint', store=True, index=True)
 
+    slot_ids = fields.One2many('runbot.batch.slot', 'params_id')
+
     _sql_constraints = [
         ('unique_fingerprint', 'unique (fingerprint)', 'avoid duplicate params'),
     ]
