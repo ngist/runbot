@@ -384,7 +384,7 @@ class Batch(models.Model):
     def _start_builds(self):
         self.ensure_one()
         bundle = self.bundle_id
-        bundle_repos = bundle.branch_ids.mapped('remote_id.repo_id')
+        bundle_repos = bundle.branch_ids.filtered('alive').mapped('remote_id.repo_id')
         success_trigger = self.slot_ids.filtered(lambda s: s.build_id.global_state in ('running', 'done') and s.build_id.global_result == "ok").trigger_id
         trigger_customs = {}
         for trigger_custom in self.bundle_id.trigger_custom_ids:
