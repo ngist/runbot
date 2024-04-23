@@ -11,7 +11,7 @@
                                     <t t-esc="bundle.name"/>
                                     <i t-if="bundle.sticky" class="fa fa-star" style="color: #f0ad4e" />
                                     <div class="btn-group" role="group">
-                                        <a groups="runbot.group_runbot_advanced_user" t-attf-href="/web/#id={{bundle.id}}&amp;view_type=form&amp;model=runbot.bundle&amp;menu_id={{env['ir.model.data']._xmlid_to_res_id('runbot.runbot_menu_root')}}" class="btn btn-default btn-sm" target="new" title="View in Backend">
+                                        <a groups="runbot.group_runbot_advanced_user" t-attf-href="/web/#id={{bundle.id}}&amp;view_type=form&amp;model=runbot.bundle&amp;menu_id={{env['ir.model.data']._xmlid_to_res_id('runbot.runbot_menu_root')}}" class="btn btn-default" target="new" title="View in Backend">
                                           <i class="fa fa-list"/>
                                         </a>
                                         <a groups="runbot.group_runbot_advanced_user" class="btn btn-default" t-attf-href="/runbot/bundle/{{bundle.id}}/force" title="Force A New Batch">
@@ -20,7 +20,9 @@
                                         <a t-if="bundle.env.user.has_group('runbot.group_runbot_advanced_user') or (bundle.env.user.has_group('runbot.group_user') and ':' in bundle.name)" class="btn btn-default" t-attf-href="/runbot/bundle/{{bundle.id}}/force/1" title="Force A New Batch with automatic rebase">
                                             <i class="fa fa-fast-forward"/>
                                         </a>
-                                        <t t-call="runbot.branch_copy_button"/>
+                                        <t t-call="runbot.branch_copy_button">
+                                            <t t-set="btn_size" t-value="'btn'"/>
+                                        </t>
                                         <t t-call="runbot.bundle_stats_dropdown"/>
                                     </div>
                                 </span>

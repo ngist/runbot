@@ -5,7 +5,7 @@
       <t t-call='runbot.layout'>
           <t t-set="bundles" t-value="build.slot_ids.mapped('batch_id.bundle_id')"/>
           <div>
-            <div class="row">
+            <div class="row g-0">
               <div class="col-md-4">
                 <div class="bg-success-subtle">
                   <b>Build: </b><a t-attf-href="/runbot/build/{{build.id}}"><t t-esc="build.id"/></a><br/>

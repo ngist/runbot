@@ -14,7 +14,7 @@
             </div>
           </form>
         </t>
-        <div class="row">
+        <div class="row g-0">
           <div class="col-md-12">
             <t t-set="batches" t-value="build.top_parent.with_context(active_test=False).slot_ids.mapped('batch_id')"/>
             <t t-set="bundles" t-value="batches.mapped('bundle_id')"/>
@@ -370,7 +370,7 @@
     </template>
     <template id="runbot.build_search">
       <t t-call='runbot.layout'>
-        <div class="row">
+        <div class="row g-0">
           <div class="col-md-12">
             <table class="table table-condensed">
               <t t-foreach="builds" t-as="build">

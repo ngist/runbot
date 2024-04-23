@@ -1204,7 +1204,7 @@ class BuildResult(models.Model):
             return 'success'
 
         if self.global_result in ('skipped', 'killed', 'manually_killed'):
-            return 'killed'
+            return 'secondary'
         return 'default'
 
     def _github_status(self):

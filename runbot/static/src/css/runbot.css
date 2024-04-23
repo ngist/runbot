@@ -87,6 +87,11 @@
     --bs-btn-disabled-border-color: #17a2b8;
 }
 
+
+.accordion {
+	--bs-accordion-btn-padding-y: 0.3rem; /* more condensed build error views */
+}
+
 .text-bg-default {
 	color: var(--bs-body-color) !important;
 	background-color: RGBA(var(--bs-body-bg-rgb), var(--bs-bg-opacity, 1)) !important;

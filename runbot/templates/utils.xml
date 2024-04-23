@@ -276,7 +276,7 @@
                 <i t-attf-class="fa  {{'fa-spinner' if bu.global_state == 'pending' else 'fa-cog'}} {{'' if bu.global_state in ('done', 'running') else 'fa-spin'}} fa-fw"/>
                 <span class="caret"/>
             </button>
-            <div class="dropdown-menu dropdown-menu-right" role="menu">
+            <div class="dropdown-menu dropdown-menu-end" role="menu">
                 <a t-if="bu.global_result=='skipped'" groups="runbot.group_runbot_admin" class="dropdown-item" href="#" data-runbot="rebuild" t-att-data-runbot-build="bu['id']">
                     <i class="fa fa-level-up"/>
                     Force Build
@@ -367,7 +367,7 @@
         </template>
 
         <template id="runbot.branch_copy_button">
-            <button t-attf-class="btn btn-default btn-ssm" title="Copy Bundle name" aria-label="Copy Bundle name" t-attf-onclick="copyToClipboard('{{ bundle.name.split(':')[-1] }}')">
+            <button t-attf-class="btn btn-default {{btn_size or 'btn-ssm'}}" title="Copy Bundle name" aria-label="Copy Bundle name" t-attf-onclick="copyToClipboard('{{ bundle.name.split(':')[-1] }}')">
               <i t-attf-class="fa fa-clipboard"/>
             </button>
         </template>
@@ -378,7 +378,7 @@
                     <i t-attf-class="fa fa-bar-chart"/>
                     <span class="caret"/>
             </button>
-            <div class="dropdown-menu dropdown-menu-right" role="menu">
+            <div class="dropdown-menu dropdown-menu-end" role="menu">
                 <t t-foreach="project.trigger_ids" t-as="trigger">
                     <a class="dropdown-item" t-if="trigger.has_stats" t-attf-href="/runbot/stats/{{bundle.id}}/{{trigger.id}}">
                         <t t-esc="trigger.name" />
