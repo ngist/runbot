@@ -624,7 +624,7 @@ def test_ff_failure(env, repo, config, page):
     _new, prev = doc.cssselect('li.staging')
 
     assert 'bg-gray-lighter' in prev.classes, "ff failure is ~ cancelling"
-    assert prev.get('title') == re_matches('fast forward failed \(update is not a fast forward\)')
+    assert prev.get('title') == re_matches(r'fast forward failed \(update is not a fast forward\)')
 
     assert env['runbot_merge.pull_requests'].search([
         ('repository.name', '=', repo.name),

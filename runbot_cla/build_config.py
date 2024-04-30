@@ -30,7 +30,7 @@ class Step(models.Model):
                 mo = re.search('[^ <@]+@[^ @>]+', email or '')
                 if mo:
                     email = mo.group(0).lower()
-                    if not re.match('.*@(odoo|openerp|tinyerp)\.com$', email):
+                    if not re.match(r'.*@(odoo|openerp|tinyerp)\.com$', email):
                         try:
                             cla = ''.join(io.open(f, encoding='utf-8').read() for f in cla_glob)
                             if cla.lower().find(email) == -1:

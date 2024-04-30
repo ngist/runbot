@@ -74,7 +74,7 @@ class Project(models.Model):
 
     def _find_commands(self, comment):
         return re.findall(
-            '^\s*[@|#]?{}:? (.*)$'.format(self.github_prefix),
+            r'^\s*[@|#]?{}:? (.*)$'.format(self.github_prefix),
             comment, re.MULTILINE | re.IGNORECASE)
 
     def _has_branch(self, name):

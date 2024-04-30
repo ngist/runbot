@@ -1244,4 +1244,4 @@ class BuildResult(models.Model):
                         commit._github_status(build, trigger.ci_context, state, target_url, desc)
 
     def _parse_config(self):
-        return set(findall(self._server("tools/config.py"), '--[\w-]+', ))
+        return set(findall(self._server("tools/config.py"), r'--[\w-]+', ))

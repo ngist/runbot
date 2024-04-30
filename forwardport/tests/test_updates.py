@@ -403,7 +403,7 @@ conflict in this pull request, data may have been lost.
 
 stdout:
 ```.*?
-CONFLICT \(add/add\): Merge conflict in h.*?
+CONFLICT \\(add/add\\): Merge conflict in h.*?
 ```
 
 stderr:

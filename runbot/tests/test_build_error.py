@@ -52,7 +52,7 @@ class TestBuildError(RunbotCase):
     def test_create_write_clean(self):
 
         self.ErrorRegex.create({
-            'regex': '\d+',
+            'regex': r'\d+',
             're_type': 'cleaning',
         })
 

@@ -58,7 +58,7 @@ class Project(models.Model):
             return super()._find_commands(comment)
 
         return re.findall(
-            '^\s*[@|#]?{}:? (.*)$'.format(self.fp_github_name),
+            r'^\s*[@|#]?{}:? (.*)$'.format(self.fp_github_name),
             comment, re.MULTILINE | re.IGNORECASE
         ) + super()._find_commands(comment)
 
@@ -358,7 +358,7 @@ class PullRequests(models.Model):
 
         tokens = [
             token
-            for line in re.findall('^\s*[@|#]?{}:? (.*)$'.format(self.repository.project_id.fp_github_name), comment['body'] or '', re.MULTILINE | re.IGNORECASE)
+            for line in re.findall(r'^\s*[@|#]?{}:? (.*)$'.format(self.repository.project_id.fp_github_name), comment['body'] or '', re.MULTILINE | re.IGNORECASE)
             for token in line.split()
         ]
         if not tokens:
