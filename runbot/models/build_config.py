@@ -933,7 +933,8 @@ class ConfigStep(models.Model):
         elif self.job_type == 'install_odoo':
             if self.coverage:
                 build.write(self._make_coverage_results(build))
-            self._make_odoo_results(build)
+            if not self.sub_command:
+                self._make_odoo_results(build)
         elif self.job_type == 'test_upgrade':
             self._make_upgrade_results(build)
         elif self.job_type == 'restore':
