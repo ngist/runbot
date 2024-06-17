@@ -287,10 +287,10 @@ class Runbot(models.AbstractModel):
 
         return manager.get('sleep', default_sleep)
 
-    def _scheduler_loop_turn(self, host, sleep=5):
+    def _scheduler_loop_turn(self, host, sleep=10):
         with self._manage_host_exception(host) as manager:
             if self._scheduler(host):
-                sleep = 0.1
+                sleep = 0.5
         return manager.get('sleep', sleep)
 
     @contextmanager
@@ -311,7 +311,7 @@ class Runbot(models.AbstractModel):
                 host.last_exception = str(e)
                 host.exception_count = 1
             self._commit()
-            res['sleep'] = random.uniform(0, 3)
+            res['sleep'] = random.uniform(1, 5)
         else:
             if host.last_exception:
                 host.last_exception = ""
