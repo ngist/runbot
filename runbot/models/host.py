@@ -137,9 +137,7 @@ class Host(models.Model):
 
         docker_append = f"""
             RUN groupadd -g {os.getgid()} {user} \\
-            && useradd -u {os.getuid()} -g {user} -G audio,video {user} \\
-            && mkdir /home/{user} \\
-            && chown -R {user}:{user} /home/{user}
+            && useradd -m -u {os.getuid()} -g {user} -G audio,video {user}
             USER {user}
             ENV COVERAGE_FILE /data/build/.coverage
             """
